@@ -1,5 +1,6 @@
 <?php
-if (!isset($_POST['pass'])){
+
+if (empty($_POST['pass'])){
     echo 'Please enter a password';
 } elseif ($_POST['pass']!= 'kangourou'){
     echo 'Wrong password !';
