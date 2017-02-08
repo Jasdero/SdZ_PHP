@@ -8,9 +8,9 @@
     <title>Password</title>
 </head>
 <body>
-<h2>Access to NASA datas</h2>
+<h2>Access to NASA data</h2>
 <form action="index.php" method="post">
-    <label for="pass">Enter yout password</label>
+    <label for="pass">Enter your password</label>
     <input type="password" name="pass" id="pass">
     <input type="submit" value="Send">
 </form>
@@ -18,7 +18,7 @@
 if (empty($_POST['pass']) || $_POST['pass'] != 'kangourou')
     {
 
-    echo '<h2>Need the good password to access datas</h2>';
+    echo '<h2>Need the good password to access data</h2>';
 
     } else {
     for ($i = 0; $i <= 10; $i++) {
