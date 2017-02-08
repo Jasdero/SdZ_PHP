@@ -9,9 +9,9 @@
 </head>
 <body>
 <h2>Access to NASA datas</h2>
-<form action="pass.php">
+<form action="pass.php" method="post">
     <label for="pass">Enter yout password</label>
-    <input type="text" name="pass" id="pass">
+    <input type="password" name="pass" id="pass">
     <input type="submit" value="Send">
 </form>
 </body>
