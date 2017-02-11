@@ -19,7 +19,7 @@
         <form action="minichat_post.php" method="post">
             <div class="form-group">
                 <label for="pseudo">Votre Pseudo</label>
-                <input type="text" class="form-control" name="pseudo" id="pseudo">
+                <input type="text" class="form-control" name="pseudo" id="pseudo"<?php if (isset($_COOKIE['pseudo'])){ echo 'value='.htmlentities($_COOKIE['pseudo']);} ?>>
                 <textarea class="form-control" name="contenu" id="contenu" rows="3">Votre message ici</textarea>
                 <input type="submit" class="btn btn-info center-block" value="valider">
             </div>
@@ -31,7 +31,7 @@
 
 include "connexion.php";
 
-$response = $db->query('SELECT * FROM minichat ORDER BY id DESC LIMIT 10');
+$response = $db->query('SELECT nom, contenu, DATE_FORMAT(date_creation,\'%d/%m/%Y %Hh%imin%ss\') as date_creation FROM minichat ORDER BY id DESC LIMIT 10');
 
 while ($data = $response->fetch()) {
 
@@ -40,7 +40,7 @@ while ($data = $response->fetch()) {
     <div class="container">
         <div class="row">
             <div class="col-sm-offset-3 col-sm-6">
-                <p><strong><?php echo $data['nom'] ?></strong> : <?php echo $data['contenu'] ?></p>
+                <p>[<?php echo htmlspecialchars($data['date_creation']) ?>] <strong><?php echo htmlspecialchars($data['nom']) ?></strong> : <?php echo htmlspecialchars($data['contenu']) ?></p>
             </div>
         </div>
     </div>
